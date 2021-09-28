@@ -1,0 +1,46 @@
+@mixin respond($breakpoint) {
+  @if ($breakpoint==tab-land) {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+  @if ($breakpoint==tab-port) {
+    @media (max-width: 900px) {
+      @content;
+    }
+  }
+  @if ($breakpoint==phone) {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  @include respond(tab-land) {
+    font-size: 1rem;
+  }
+  @include respond(tab-port) {
+    font-size: 1rem;
+  }
+  @include respond(phone) {
+    font-size: 0.8rem;
+  }
+}
+
+:root {
+  --color-grey: rgba(97, 125, 152, 0.8);
+  --clr-pink: #f28ab2;
+}
+body {
+  background-color: var(--clr-pink);
+}
